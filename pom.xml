@@ -23,7 +23,7 @@
             <artifactId>s3</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/lib/Onest-S3-java-SDK.jar
+            <systemPath>${project.basedir}/src/main/resources/lib/Onest-S3-java-SDK.jar
             </systemPath>
         </dependency>
         <dependency>
@@ -35,19 +35,26 @@
 
 
     <build>
-        <resources>
-            <resource>
-                <directory>lib</directory>
-                <targetPath>/BOOT-INF/lib/</targetPath>
-                <includes>
-                    <include>**/*.jar</include>
-                </includes>
-            </resource>
-        </resources>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>${project.basedir}/src/main/resources/lib</directory>-->
+<!--                <targetPath>BOOT-INF/lib/</targetPath>-->
+<!--                <includes>-->
+<!--                    <include>**/*.jar</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                <targetPath>BOOT-INF/classes/</targetPath>-->
+<!--            </resource>-->
+<!--        </resources>-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
         </plugins>
     </build>
