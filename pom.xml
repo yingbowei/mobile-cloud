@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>wanting</artifactId>
+        <groupId>com.wmeimob.fastboot</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>mobile-cloud</artifactId>
+    <dependencies>
+
+        <!--公共组件-->
+        <dependency>
+            <groupId>com.wmeimob.fastboot</groupId>
+            <artifactId>wmeimob-fastboot-framework-common</artifactId>
+        </dependency>
+
+        <!-- 移动云sdk -->
+        <dependency>
+            <groupId>com.amazonaws.cloud</groupId>
+            <artifactId>s3</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/lib/Onest-S3-java-SDK.jar
+            </systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>lib</directory>
+                <targetPath>/BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
